@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Font Declarations ──────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono[wght].woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.375rem;
+
+    /* THE EYE — dark crimson gaming theme */
+    --background: 0.09 0.012 20;
+    --foreground: 0.95 0.01 90;
+
+    --card: 0.13 0.015 20;
+    --card-foreground: 0.95 0.01 90;
+
+    --popover: 0.13 0.015 20;
+    --popover-foreground: 0.95 0.01 90;
+
+    /* Primary: deep crimson red */
+    --primary: 0.52 0.21 25;
+    --primary-foreground: 0.98 0 0;
+
+    /* Secondary: dark red-tinted */
+    --secondary: 0.18 0.025 25;
+    --secondary-foreground: 0.88 0.01 90;
+
+    /* Muted: dark gray */
+    --muted: 0.16 0.015 20;
+    --muted-foreground: 0.56 0.02 20;
+
+    /* Accent: bright crimson */
+    --accent: 0.48 0.22 27;
+    --accent-foreground: 0.98 0 0;
+
+    /* Destructive: blood red */
+    --destructive: 0.55 0.24 27;
+    --destructive-foreground: 0.98 0 0;
+
+    /* Border: subtle dark red outline */
+    --border: 0.22 0.035 25;
+    --input: 0.22 0.035 25;
+    --ring: 0.52 0.21 25;
+
+    /* Charts */
+    --chart-1: 0.52 0.21 25;
+    --chart-2: 0.68 0.18 30;
+    --chart-3: 0.44 0.17 22;
+    --chart-4: 0.75 0.15 50;
+    --chart-5: 0.62 0.19 28;
+
+    /* Sidebar */
+    --sidebar: 0.11 0.012 20;
+    --sidebar-foreground: 0.95 0.01 90;
+    --sidebar-primary: 0.52 0.21 25;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.18 0.025 25;
+    --sidebar-accent-foreground: 0.88 0.01 90;
+    --sidebar-border: 0.22 0.035 25;
+    --sidebar-ring: 0.52 0.21 25;
+
+    /* Custom THE EYE tokens */
+    --eye-red: 0.52 0.21 25;
+    --eye-red-bright: 0.62 0.22 27;
+    --eye-red-dark: 0.38 0.18 23;
+    --eye-red-glow: 0.52 0.21 25;
+    --eye-surface: 0.13 0.015 20;
+    --eye-surface-raised: 0.17 0.02 22;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(var(--eye-red));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(var(--eye-red-bright));
+  }
+}
+
+/* ── THE EYE Glow Keyframes ──────────────────────────────────────────────── */
+
+@keyframes eye-title-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #dc2626,
+      0 0 82px #dc2626,
+      0 0 92px #dc2626,
+      0 0 102px #dc2626,
+      0 0 151px #dc2626;
+    opacity: 1;
+  }
+  45% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 7px #fff,
+      0 0 13px #fff,
+      0 0 28px #ef4444,
+      0 0 55px #ef4444,
+      0 0 68px #ff0000,
+      0 0 88px #ff0000,
+      0 0 115px #ff0000;
+    opacity: 0.92;
+  }
+  50% {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #ff0000,
+      0 0 82px #ff0000,
+      0 0 92px #ff0000,
+      0 0 102px #ff0000,
+      0 0 151px #ff0000;
+    opacity: 0.96;
+  }
+  55% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 7px #fff,
+      0 0 13px #fff,
+      0 0 28px #ef4444,
+      0 0 55px #ef4444,
+      0 0 68px #ff0000,
+      0 0 88px #ff0000,
+      0 0 115px #ff0000;
+    opacity: 0.93;
+  }
+  92% {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #dc2626,
+      0 0 82px #dc2626,
+      0 0 92px #dc2626,
+      0 0 102px #dc2626,
+      0 0 151px #dc2626;
+    opacity: 1;
+  }
+  93% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #fff,
+      0 0 8px #fff,
+      0 0 18px #dc2626,
+      0 0 35px #dc2626;
+    opacity: 0.75;
+  }
+  94% {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #dc2626,
+      0 0 82px #dc2626,
+      0 0 92px #dc2626,
+      0 0 102px #dc2626,
+      0 0 151px #dc2626;
+    opacity: 1;
+  }
+}
+
+@keyframes eye-tab-glow-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px #fff,
+      0 0 10px #fff,
+      0 0 18px #ef4444,
+      0 0 38px #dc2626,
+      0 0 60px #dc2626;
+  }
+  50% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 7px #fff,
+      0 0 12px #ef4444,
+      0 0 26px #dc2626,
+      0 0 44px #dc2626;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes purple-glow-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #c084fc,
+      0 0 25px #a855f7,
+      0 0 50px #9333ea,
+      0 0 80px #7c3aed;
+  }
+  50% {
+    text-shadow:
+      0 0 3px #fff,
+      0 0 7px #c084fc,
+      0 0 16px #a855f7,
+      0 0 34px #9333ea,
+      0 0 55px #7c3aed;
+  }
+}
+
+@keyframes gold-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 12px #fbbf24,
+      0 0 24px #f59e0b,
+      0 0 40px #d97706,
+      inset 0 0 12px #fbbf2422;
+  }
+  50% {
+    box-shadow:
+      0 0 8px #fbbf24,
+      0 0 16px #f59e0b,
+      0 0 28px #d97706,
+      inset 0 0 8px #fbbf2415;
+  }
+}
+
+@keyframes red-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 15px #ef4444,
+      0 0 30px #dc2626,
+      0 0 50px #b91c1c,
+      inset 0 0 15px #ef444422;
+  }
+  50% {
+    box-shadow:
+      0 0 10px #ef4444,
+      0 0 20px #dc2626,
+      0 0 35px #b91c1c,
+      inset 0 0 10px #ef444415;
+  }
+}
+
+@keyframes mod-border-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 15px #c084fc,
+      0 0 30px #a855f7,
+      0 0 50px #9333ea,
+      inset 0 0 15px #c084fc22;
+  }
+  50% {
+    box-shadow:
+      0 0 10px #c084fc,
+      0 0 20px #a855f7,
+      0 0 35px #9333ea,
+      inset 0 0 10px #c084fc15;
+  }
+}
+
+/* ── THE EYE Glow Classes ────────────────────────────────────────────────── */
+
+.eye-title-neon {
+  color: #fff !important;
+  animation: eye-title-pulse 3.5s ease-in-out infinite;
+}
+
+.eye-title-neon-word {
+  color: #ff4444 !important;
+  animation: eye-title-pulse 3.5s ease-in-out infinite;
+}
+
+.eye-tab-glow {
+  text-shadow:
+    0 0 6px #fff,
+    0 0 10px #fff,
+    0 0 18px #ef4444,
+    0 0 38px #dc2626,
+    0 0 60px #dc2626 !important;
+  animation: eye-tab-glow-pulse 2.5s ease-in-out infinite;
+}
+
+.eye-section-glow {
+  text-shadow:
+    0 0 4px #fff8,
+    0 0 8px #ef444488,
+    0 0 18px #dc262655,
+    0 0 30px #dc262633;
+}
+
+.mod-name-glow {
+  color: #c084fc !important;
+  animation: purple-glow-pulse 2.5s ease-in-out infinite;
+}
+
+/* Custom THE EYE tab overrides */
+[data-slot="tabs-trigger"][data-state="active"] {
+  background: oklch(0.52 0.21 25) !important;
+  color: #fff !important;
+  border-color: oklch(0.52 0.21 25 / 0.6) !important;
+  box-shadow: 0 0 12px oklch(0.52 0.21 25 / 0.35) !important;
+  text-shadow:
+    0 0 6px #fff,
+    0 0 10px #fff,
+    0 0 18px #ef4444,
+    0 0 38px #dc2626,
+    0 0 60px #dc2626 !important;
+  animation: eye-tab-glow-pulse 2.5s ease-in-out infinite;
+}
+
+[data-slot="tabs-trigger"][data-state="inactive"] {
+  color: oklch(0.52 0.06 25) !important;
+  background: transparent !important;
+}
+
+[data-slot="tabs-trigger"][data-state="inactive"]:hover {
+  background: oklch(0.52 0.21 25 / 0.08) !important;
+  color: oklch(0.72 0.1 28) !important;
+}
+
+@layer utilities {
+  .eye-glow {
+    box-shadow: 0 0 20px oklch(var(--eye-red) / 0.3), 0 0 40px oklch(var(--eye-red) / 0.1);
+  }
+  .eye-glow-text {
+    text-shadow: 0 0 30px oklch(var(--eye-red-bright) / 0.6), 0 0 60px oklch(var(--eye-red) / 0.3);
+  }
+  .eye-card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .eye-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px oklch(var(--eye-red) / 0.2), 0 2px 8px oklch(0 0 0 / 0.4);
+    border-color: oklch(var(--eye-red) / 0.5);
+  }
+  .scanline-bg {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      oklch(0 0 0 / 0.03) 2px,
+      oklch(0 0 0 / 0.03) 4px
+    );
+  }
+  .pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  .rank-gold-glow {
+    animation: gold-glow-pulse 2.5s ease-in-out infinite;
+  }
+  .rank-red-glow {
+    animation: red-glow-pulse 2.5s ease-in-out infinite;
+  }
+  .rank-mod-glow {
+    animation: mod-border-pulse 2.5s ease-in-out infinite;
+  }
+}
