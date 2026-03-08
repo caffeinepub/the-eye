@@ -638,16 +638,7 @@ export default function App() {
           <span style={{ color: "oklch(0.55 0.08 25)" }}>:)</span>
         </p>
         <p className="text-xs" style={{ color: "oklch(0.32 0.03 25)" }}>
-          © {new Date().getFullYear()}.{" "}
-          <a
-            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:underline"
-            style={{ color: "oklch(0.45 0.08 25)" }}
-          >
-            Built with ♥ using caffeine.ai
-          </a>
+          © {new Date().getFullYear()}.
         </p>
       </footer>
     </div>
